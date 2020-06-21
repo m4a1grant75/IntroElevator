@@ -1,32 +1,25 @@
 package ua.vlnagornyi.entity;
 
+import java.util.List;
+
 public class Elevator {
-    private static final int MAX_CAPACITY = 5;
     private static Elevator elevator;
 
-    private int amountOfPassenger;
     private int currentFloor;
     private int nextFloor;
+    private List<Passenger> passengers;
 
-    private Elevator(int amountOfPassenger, int currentFloor, int nextFloor) {
-        this.amountOfPassenger = amountOfPassenger;
+    private Elevator(int currentFloor, int nextFloor, List<Passenger> passengers) {
         this.currentFloor = currentFloor;
         this.nextFloor = nextFloor;
+        this.passengers = passengers;
     }
 
-    public Elevator getElevator(int amountOfPassenger, int currentFloor){
+    public static Elevator getInstance(int currentFloor, List<Passenger> passengers){
         if (elevator == null){
-            elevator = new Elevator(amountOfPassenger, currentFloor, 0);
+            elevator = new Elevator(currentFloor, 0, passengers);
         }
         return elevator;
-    }
-
-    public int getAmountOfPassenger() {
-        return amountOfPassenger;
-    }
-
-    public void setAmountOfPassenger(int amountOfPassenger) {
-        this.amountOfPassenger = amountOfPassenger;
     }
 
     public int getCurrentFloor() {
@@ -43,5 +36,13 @@ public class Elevator {
 
     public void setNextFloor(int nextFloor) {
         this.nextFloor = nextFloor;
+    }
+
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
     }
 }
