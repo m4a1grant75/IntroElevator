@@ -6,13 +6,13 @@ import ua.vlnagornyi.entity.Passenger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Initializer {
+public class InitializerUtil {
 
     private static int MAX_AMOUNT_OF_FLOORS = 20;
     private static int MIN_AMOUNT_OF_FLOORS = 5;
     private static int MAX_AMOUNT_OF_PASSENGERS = 10;
 
-    public List<Floor> createFloors (){
+    public static List<Floor> createFloors (){
         int amountOfFloors = MIN_AMOUNT_OF_FLOORS + (int)(Math.random() * MAX_AMOUNT_OF_FLOORS);
         List<Floor> floors = new ArrayList<>();
         for (int i = 0; i < amountOfFloors; i++){
@@ -23,17 +23,17 @@ public class Initializer {
         return floors;
     }
 
-    private List<Passenger> createPassengers(int amountOfPassengers, int currentFloor, int amountOfFloors){
+    private static List<Passenger> createPassengers(int amountOfPassengers, int currentFloor, int amountOfFloors){
         List<Passenger> passengers = new ArrayList<>();
         for (int i = 0; i < amountOfPassengers; i++) {
-            int targetFloor = defineTargetFloor(amountOfFloors, i);
+            int targetFloor = defineTargetFloor(amountOfFloors, currentFloor);
             Passenger passenger = new Passenger(currentFloor, targetFloor);
             passengers.add(passenger);
         }
         return passengers;
     }
 
-    private int defineTargetFloor(int amountOfFloors, int currentFloor) {
+    private static int defineTargetFloor(int amountOfFloors, int currentFloor) {
         int targetFloor;
         do {
             targetFloor = (int) (Math.random() * amountOfFloors);
