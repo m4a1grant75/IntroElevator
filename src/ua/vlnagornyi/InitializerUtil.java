@@ -8,12 +8,12 @@ import java.util.List;
 
 public class InitializerUtil {
 
-    private static int MAX_AMOUNT_OF_FLOORS = 20;
-    private static int MIN_AMOUNT_OF_FLOORS = 5;
+    private static int MAX_AMOUNT_OF_FLOORS = 6;
+    private static int MIN_AMOUNT_OF_FLOORS = 3;
     private static int MAX_AMOUNT_OF_PASSENGERS = 10;
 
     public static List<Floor> createFloors (){
-        int amountOfFloors = MIN_AMOUNT_OF_FLOORS + (int)(Math.random() * MAX_AMOUNT_OF_FLOORS);
+        int amountOfFloors = MIN_AMOUNT_OF_FLOORS + (int)(Math.random() * (MAX_AMOUNT_OF_FLOORS - MIN_AMOUNT_OF_FLOORS));
         List<Floor> floors = new ArrayList<>();
         for (int i = 0; i < amountOfFloors; i++){
             int amountOfPassengers = (int) (Math.random() * MAX_AMOUNT_OF_PASSENGERS);
@@ -27,7 +27,7 @@ public class InitializerUtil {
         List<Passenger> passengers = new ArrayList<>();
         for (int i = 0; i < amountOfPassengers; i++) {
             int targetFloor = defineTargetFloor(amountOfFloors, currentFloor);
-            Passenger passenger = new Passenger(currentFloor, targetFloor);
+            Passenger passenger = new Passenger(targetFloor);
             passengers.add(passenger);
         }
         return passengers;
