@@ -45,4 +45,12 @@ public class Elevator {
     public void setPassengers(List<Passenger> passengers) {
         this.passengers = passengers;
     }
+
+    @Override
+    public String toString() {
+        return "Elevator{" +
+                "currentFloor=" + currentFloor +
+                ", passengers=" + passengers +
+                '}';
+    }
 }

@@ -7,6 +7,7 @@ public class Floor {
     private List<Passenger> passengers;
 
     public Floor(int number, List<Passenger> passengers) {
+        this.number = number;
         this.passengers = passengers;
     }
 
@@ -20,5 +21,13 @@ public class Floor {
 
     public int getNumber() {
         return number;
+    }
+
+    @Override
+    public String toString() {
+        return "Floor{" +
+                "number=" + number +
+                ", passengers=" + passengers +
+                '}';
     }
 }
