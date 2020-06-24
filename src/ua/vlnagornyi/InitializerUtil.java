@@ -1,15 +1,15 @@
 package ua.vlnagornyi;
 
-import ua.vlnagornyi.entity.Floor;
 import ua.vlnagornyi.entity.Passenger;
+import ua.vlnagornyi.entity.Floor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InitializerUtil {
 
-    private static int MAX_AMOUNT_OF_FLOORS = 6;
-    private static int MIN_AMOUNT_OF_FLOORS = 3;
+    private static int MAX_AMOUNT_OF_FLOORS = 20;
+    private static int MIN_AMOUNT_OF_FLOORS = 5;
     private static int MAX_AMOUNT_OF_PASSENGERS = 10;
 
     public static List<Floor> createFloors (){
