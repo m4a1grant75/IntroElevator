@@ -24,10 +24,7 @@ public class ElevatorServiceTest {
     public void startElevator() {
         List<Floor> building = InitializerUtil.createFloors();
         elevatorService.startElevator(building);
-        int amountOfPassengers = building.stream()
-                .mapToInt(value -> value.getPassengers().size())
-                .sum();
-        assertEquals(0, amountOfPassengers);
+        assertFalse(elevatorService.checkBuilding(building));
     }
 
 }

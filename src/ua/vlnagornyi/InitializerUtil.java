@@ -35,6 +35,7 @@ public class InitializerUtil {
 
     private static int defineTargetFloor(int amountOfFloors, int currentFloor) {
         int targetFloor;
+        //проверка, что пассажиру не нужно на его текущий этаж
         do {
             targetFloor = (int) (Math.random() * amountOfFloors);
         } while (targetFloor == currentFloor);

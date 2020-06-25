@@ -27,7 +27,7 @@ public class ElevatorService {
         }while (checkBuilding(building));
     }
 
-    private boolean checkBuilding(List<Floor> building){
+    public boolean checkBuilding(List<Floor> building){
         int amountOfPassengers = building.stream()
                 .mapToInt(value -> value.getPassengers().size())
                 .sum();
@@ -55,7 +55,7 @@ public class ElevatorService {
         return newPassengers;
     }
 
-    private List<Passenger> dropOffPassengers(){
+    private List<Passenger> dropOffPassengers(){                                                                        //press "f" to pay respect
         List<Passenger> passengers = elevator.getPassengers();
         return passengers.stream()
                 .filter(passenger -> passenger.getTargetFloor() != elevator.getCurrentFloor())
@@ -64,6 +64,7 @@ public class ElevatorService {
 
     //если пассажиров нет, возвращаем первый этаж с пассажирами или 0
     //иначе - максимальный этаж, нужный пассажирам. так мы точно приедем туда, куда нужно хотя бы одному из пассажиров
+    //такая стратегия мне кажется более выгодной, так как мы не тратим итерации на пустые этажи и этажи, на которые пассажирам не надо
     private int calculateNextFloor(List<Floor> building) {
         List<Passenger> passengers = elevator.getPassengers();
         int maxFloor = 0;
